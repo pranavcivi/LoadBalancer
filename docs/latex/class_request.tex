@@ -1,0 +1,82 @@
+\doxysection{Request Class Reference}
+\hypertarget{class_request}{}\label{class_request}\index{Request@{Request}}
+
+
+Represents a web request with source and destination IP addresses, processing time, and job type.  
+
+
+
+
+{\ttfamily \#include $<$Request.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_request_afaf8d8928de7ffff8a3767589489bd33}{Request}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_request}{Request}. Initializes random IPs and job type. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_request_a06c3139b8859264ce63d766d444c7d43}{generate\+IP}} ()
+\begin{DoxyCompactList}\small\item\em Generates a random IP address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_request_ae6f3d3754c579a4f0f5344594bb68532}\label{class_request_ae6f3d3754c579a4f0f5344594bb68532} 
+string {\bfseries ip\+IN}
+\begin{DoxyCompactList}\small\item\em The source IP address of the request. \end{DoxyCompactList}\item 
+\Hypertarget{class_request_a60ada41c7619bf2cf931a6aa8c05d716}\label{class_request_a60ada41c7619bf2cf931a6aa8c05d716} 
+string {\bfseries ip\+OUT}
+\begin{DoxyCompactList}\small\item\em The destination IP address of the request. \end{DoxyCompactList}\item 
+\Hypertarget{class_request_a5cb999727cacbd7dfd86bbd6038a219b}\label{class_request_a5cb999727cacbd7dfd86bbd6038a219b} 
+int {\bfseries time\+Left}
+\begin{DoxyCompactList}\small\item\em The time remaining to process the request. \end{DoxyCompactList}\item 
+\Hypertarget{class_request_ad49a0f18615ea50f9a11cd2494c93044}\label{class_request_ad49a0f18615ea50f9a11cd2494c93044} 
+char {\bfseries job\+Type}
+\begin{DoxyCompactList}\small\item\em The type of job requested (e.\+g., different types of web requests). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a web request with source and destination IP addresses, processing time, and job type. 
+
+The \doxylink{class_request}{Request} class holds information about the request, including the IP addresses involved, the time left to process the request, and the job type. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_request_afaf8d8928de7ffff8a3767589489bd33}\index{Request@{Request}!Request@{Request}}
+\index{Request@{Request}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{Request()}{Request()}}
+{\footnotesize\ttfamily \label{class_request_afaf8d8928de7ffff8a3767589489bd33} 
+Request\+::\+Request (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Default constructor for \doxylink{class_request}{Request}. Initializes random IPs and job type. 
+
+Constructs a \doxylink{class_request}{Request} object with randomly generated IP addresses and a random processing time.
+
+The constructor initializes the source and destination IP addresses using the \doxylink{class_request_a06c3139b8859264ce63d766d444c7d43}{generate\+IP()} method and assigns a random processing time between 1 and 100. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_request_a06c3139b8859264ce63d766d444c7d43}\index{Request@{Request}!generateIP@{generateIP}}
+\index{generateIP@{generateIP}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{generateIP()}{generateIP()}}
+{\footnotesize\ttfamily \label{class_request_a06c3139b8859264ce63d766d444c7d43} 
+string Request\+::generate\+IP (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generates a random IP address. 
+
+Generates a random IP address in the format "{}xxx.\+xxx.\+xxx.\+xxx"{}.
+
+\begin{DoxyReturn}{Returns}
+A string representing the generated IP address.
+\end{DoxyReturn}
+Each octet of the IP address is a random number between 0 and 255.
+
+\begin{DoxyReturn}{Returns}
+A string representing the generated IP address. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_request_8h}{Request.\+h}}\item 
+Request.\+cpp\end{DoxyCompactItemize}

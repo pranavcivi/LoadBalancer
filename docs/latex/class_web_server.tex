@@ -1,0 +1,111 @@
+\doxysection{Web\+Server Class Reference}
+\hypertarget{class_web_server}{}\label{class_web_server}\index{WebServer@{WebServer}}
+
+
+Simulates a web server that processes web requests.  
+
+
+
+
+{\ttfamily \#include $<$Web\+Server.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_web_server_ad053f4e1808a3c10c7522d0dbbbc031a}\label{class_web_server_ad053f4e1808a3c10c7522d0dbbbc031a} 
+{\bfseries Web\+Server} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_web_server}{Web\+Server}. Initializes server state as idle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_a4b5b6098e341a99faacf2bcddec56598}{assign\+Request}} (\mbox{\hyperlink{class_request}{Request}} \&req)
+\begin{DoxyCompactList}\small\item\em Assigns a request to the web server and marks it as busy. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_web_server_a4387e62aff847f4ce3af64ffad46686b}{process\+Request}} (int time)
+\begin{DoxyCompactList}\small\item\em Processes the current request by decrementing its time. \end{DoxyCompactList}\item 
+\Hypertarget{class_web_server_af3edb0b5a3606623b24ce6b65db46e56}\label{class_web_server_af3edb0b5a3606623b24ce6b65db46e56} 
+void {\bfseries complete\+Request} ()
+\begin{DoxyCompactList}\small\item\em Completes the current request, marks the server as idle, and resets its idle cycle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_web_server_a3569aaaa5858a157d5b1b46e49d0d77f}\label{class_web_server_a3569aaaa5858a157d5b1b46e49d0d77f} 
+\mbox{\hyperlink{class_request}{Request}} {\bfseries current\+Request}
+\begin{DoxyCompactList}\small\item\em The current request being processed by the server. \end{DoxyCompactList}\item 
+\Hypertarget{class_web_server_a908c1614efb60d8ea72e4b137894becb}\label{class_web_server_a908c1614efb60d8ea72e4b137894becb} 
+int {\bfseries time\+Remaining}
+\begin{DoxyCompactList}\small\item\em The remaining time to process the current request. \end{DoxyCompactList}\item 
+\Hypertarget{class_web_server_a702afd03031519bc17e80bbbc0370c5a}\label{class_web_server_a702afd03031519bc17e80bbbc0370c5a} 
+bool {\bfseries busy}
+\begin{DoxyCompactList}\small\item\em Flag indicating whether the server is busy. \end{DoxyCompactList}\item 
+\Hypertarget{class_web_server_ad8a57bcbe0f1572c90f639956e7340f7}\label{class_web_server_ad8a57bcbe0f1572c90f639956e7340f7} 
+int {\bfseries cycles\+Idle}
+\begin{DoxyCompactList}\small\item\em Tracks the number of idle cycles when the server is not processing a request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simulates a web server that processes web requests. 
+
+Simulates a web server that processes requests.
+
+The \doxylink{class_web_server}{Web\+Server} class is responsible for handling incoming web requests, processing them, and tracking how long it remains idle.
+
+The \doxylink{class_web_server}{Web\+Server} class is responsible for managing the processing of web requests. It tracks whether it is busy, the time remaining for the current request, and how long it has been idle. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_web_server_a4b5b6098e341a99faacf2bcddec56598}\index{WebServer@{WebServer}!assignRequest@{assignRequest}}
+\index{assignRequest@{assignRequest}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{assignRequest()}{assignRequest()}}
+{\footnotesize\ttfamily \label{class_web_server_a4b5b6098e341a99faacf2bcddec56598} 
+void Web\+Server\+::assign\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_request}{Request}} \&}]{req}{}\end{DoxyParamCaption})}
+
+
+
+Assigns a request to the web server and marks it as busy. 
+
+Assigns a new request to the web server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em req} & The request to be assigned to the server.\\
+\hline
+\end{DoxyParams}
+This method assigns a request to the web server, marking the server as busy, and resetting its idle cycle counter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em req} & The \doxylink{class_request}{Request} object representing the web request to be processed. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_web_server_a4387e62aff847f4ce3af64ffad46686b}\index{WebServer@{WebServer}!processRequest@{processRequest}}
+\index{processRequest@{processRequest}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{processRequest()}{processRequest()}}
+{\footnotesize\ttfamily \label{class_web_server_a4387e62aff847f4ce3af64ffad46686b} 
+bool Web\+Server\+::process\+Request (\begin{DoxyParamCaption}\item[{int}]{time}{}\end{DoxyParamCaption})}
+
+
+
+Processes the current request by decrementing its time. 
+
+Processes the current request.
+
+If the request is completed, the server is marked as idle. 
+\begin{DoxyParams}{Parameters}
+{\em time} & The time step for processing. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the server is still busy, false if idle.
+\end{DoxyReturn}
+This method decreases the remaining processing time of the current request by 1. If the request is completed, the server is marked as idle. Otherwise, it continues processing the request. If the server is idle, it tracks how long it has been idle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & The amount of time to simulate processing (decrements the request time by 1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the server is busy (still processing a request), false if idle. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_web_server_8h}{Web\+Server.\+h}}\item 
+Web\+Server.\+cpp\end{DoxyCompactItemize}
