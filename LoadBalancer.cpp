@@ -32,7 +32,7 @@ LoadBalancer::~LoadBalancer(){
 // this function was completed using ChatGPT
 // randomly add new requests to simulate a real world scenario
 void LoadBalancer::generateNewRequestsRandom(int time){
-    if (rand() % 10 == 0){
+    if (rand() % 100 <= 10){
         this->requestQueue.push(Request());
         cout << "Request randomly added at: " << time << endl;
     }
