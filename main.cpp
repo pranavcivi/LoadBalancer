@@ -26,6 +26,9 @@ int main(int argc, char const *argv[])
     // create loadbalancer with requests = numServers x 100
     LoadBalancer loadBalancer(numServers, numServers*100, maxServers, maxIdle);
 
+    cout << "Starting queue size: " << loadBalancer.requestQueue.size() << endl;
+    cout << "----------------------------------------------------------" << endl;
+
     for(int currTime = 0; currTime < timeToRun; currTime++){
         cout << "Clock Cycle: " << currTime+1 << endl;
         string status = loadBalancer.adjustWebServers(currTime); // TODO: add/remove web servers as necessary
@@ -39,6 +42,22 @@ int main(int argc, char const *argv[])
             return 0;
         }
     }
+
+    cout << "Ending queue size: " << loadBalancer.requestQueue.size() << endl;
+    cout << "Range for task times: rand() % 100 + 1 (i.e. 1-100)" << endl;
+    cout << "----------------------------------------------------------" << endl;
+    cout << "End Status:" << endl;
+    int activeServers = 0;
+    int inactiveServers = 0;
+    for(WebServer* server : loadBalancer.servers){
+        if(server->busy){
+            activeServers++;
+        } else {
+            inactiveServers++;
+        }
+    }
+    cout << "Active Servers: " << activeServers << endl;
+    cout << "Inactive Servers: " << inactiveServers << endl;
 
     
     return 0;
