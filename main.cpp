@@ -12,13 +12,16 @@ int main(int argc, char const *argv[])
     int maxServers = 25; 
     int maxIdle = 20;
 
-    // cout << "Number of servers: ";
-    // cin >> numServers;
-    // cout << "Time to Run: ";
-    // cin >> timeToRun;
-    // cout << numServers << " " << timeToRun << endl;
-    int numServers = 10;
-    double timeToRun = 10000;
+    int numServers;
+    int timeToRun;
+
+    cerr << "Number of servers: ";
+    cin >> numServers;
+    cerr << "Time to Run: ";
+    cin >> timeToRun;
+    cout << numServers << " " << timeToRun << endl;
+    // numServers = 10;
+    // timeToRun = 10000;
 
     // create loadbalancer with requests = numServers x 100
     LoadBalancer loadBalancer(numServers, numServers*100, maxServers, maxIdle);
@@ -29,7 +32,7 @@ int main(int argc, char const *argv[])
         loadBalancer.generateNewRequestsRandom(currTime); // randomly add new requests to the request queue to simulate real world
         loadBalancer.dispatchRequests(); // give requests to the web servers
         loadBalancer.processRequests(currTime); // have each of the webservers process their current requests
-         
+        cout << "Remaining requests in queue: " << loadBalancer.requestQueue.size() << endl;
         cout << "----------------------------------------------------------" << endl;
         if(status == "successful early exit"){
             cout << status << endl;
